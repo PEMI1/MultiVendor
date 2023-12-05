@@ -1,8 +1,20 @@
 const express = require('express')
 
+//TODO 5 endpoints for index
 const appRouter = express.Router()
-const userRouter = require('./user-controller')
 
-appRouter.use('/user', userRouter)
+appRouter.get('/', (req,res) =>{
+    res.send('appRouter from index')
+})
 
-module.exports = userRouter
+//TODO 6 route to other controllers
+const userRouter = require('./user')
+const sellerRouter = require('./seller')
+const productRouter = require('./product')
+const orderRouter = require('./order')
+appRouter.use('/user', userRouter) // /localhost:8080/api/v1/
+appRouter.use('/seller', sellerRouter)
+appRouter.use('/product', productRouter)
+appRouter.use('/order', orderRouter)
+
+module.exports = appRouter

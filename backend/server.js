@@ -7,8 +7,11 @@ loadEnv.config({
     path :"config/.env"
 })
 
+//run server.js 
+//TODO 1 connect to db
 db.connectDatabase()
 
+//TODO 2 setup express app on server 
 const server = app.listen(process.env.PORT, () =>{ 
     console.log(`Server running on port ${process.env.PORT}`)
 })
